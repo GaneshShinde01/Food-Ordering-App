@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Food Ordering App</string>
+    <string name="name">Name</string>
+    <string name="currency_symbol">$</string>
+    <string name="price">Price</string>
+    <string name="food_description">Description</string>
+</resources>
