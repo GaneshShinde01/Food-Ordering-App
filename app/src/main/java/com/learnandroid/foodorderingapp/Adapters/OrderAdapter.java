@@ -15,56 +15,51 @@ import com.learnandroid.foodorderingapp.R;
 
 import java.util.ArrayList;
 
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder>{
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
-    ArrayList<OrderModel> list;
+    ArrayList<OrderModel> orderList;
     Context context;
 
-    public OrderAdapter(ArrayList<OrderModel> list, Context context) {
-        this.list = list;
+    public OrderAdapter(ArrayList<OrderModel> orderList, Context context) {
+        this.orderList = orderList;
         this.context = context;
-    }
-
-    @Override
-    public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view  = LayoutInflater.from(context).inflate(R.layout.fragment_order,parent,false);
-
-        return new viewHolder(view);
     }
 
     @NonNull
     @Override
-    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-       // final OrderModel model =  list.get(position);
-        //System.out.println(list.get(position));
-       // System.out.println(model.getOrdered_food_image());
-        //holder.ordered_food_image.setImageResource(Integer.parseInt(list.get(position).getOrdered_food_image()));
-        holder.ordered_food_image.setImageResource(list.get(position).getOrdered_food_image());
-        holder.ordered_food_name.setText(list.get(position).getOrdered_food_name());
-        holder.order_number.setText(list.get(position).getOrdered_number());
-        holder.ordered_food_price.setText(list.get(position).getOrdered_food_price());
+        View view = LayoutInflater.from(context).inflate(R.layout.sample_order,parent,false);
 
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        holder.ordered_food_Image.setImageResource(orderList.get(position).getOrdered_food_image());
+        holder.ordered_food_name.setText(orderList.get(position).getOrdered_food_name());
+        holder.ordered_food_price.setText(orderList.get(position).getOrdered_food_price());
+        holder.ordered_number.setText(orderList.get(position).getOrdered_number());
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return orderList.size();
     }
 
-    public class viewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView ordered_food_image;
-        TextView ordered_food_name, order_number, ordered_food_price;
+        ImageView ordered_food_Image;
+        TextView ordered_food_name, ordered_food_price, ordered_number;
 
-        public viewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            ordered_food_image = itemView.findViewById(R.id.ordered_food_image);
+            ordered_food_Image = itemView.findViewById(R.id.ordered_food_image);
             ordered_food_name = itemView.findViewById(R.id.ordered_food_name);
-            order_number = itemView.findViewById(R.id.order_number);
             ordered_food_price = itemView.findViewById(R.id.ordered_food_price);
+            ordered_number = itemView.findViewById(R.id.order_number);
         }
     }
 }

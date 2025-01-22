@@ -34,11 +34,11 @@ public class OrderFragment extends Fragment {
         ArrayList<OrderModel> orderModelArrayList = new ArrayList<>();
 
 
-        orderModelArrayList.add(new OrderModel(R.drawable.mashroom,"Mashroom","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.mashroom,"Mashroom","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.mashroom,"Mashroom","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.mashroom,"Mashroom","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.mashroom,"Mashroom","15","6846554"));
+        orderModelArrayList.add(new OrderModel(R.drawable.palakpanner,"palakpanner","15","6846554"));
+        orderModelArrayList.add(new OrderModel(R.drawable.paneer,"palakpanner","15","6846554"));
+        orderModelArrayList.add(new OrderModel(R.drawable.kababpaneer,"palakpanner","15","6846554"));
+        orderModelArrayList.add(new OrderModel(R.drawable.daltadka,"palakpanner","15","6846554"));
+        orderModelArrayList.add(new OrderModel(R.drawable.baingan,"palakpanner","15","6846554"));
 
         //System.out.println("list="+orderModelArrayList);
         OrderAdapter orderAdapter = new OrderAdapter(orderModelArrayList,getContext());
