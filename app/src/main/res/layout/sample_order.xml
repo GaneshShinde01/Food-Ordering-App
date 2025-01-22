@@ -6,10 +6,11 @@
     android:layout_height="160dp">
 
     <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="5dp"
-        app:cardElevation="10dp"
+        app:cardElevation="4dp"
                 >
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,7 +21,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:id="@+id/ordered_food_image"
                 android:src="@drawable/paneer"
                 android:scaleType="centerCrop"

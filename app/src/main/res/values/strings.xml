@@ -6,4 +6,5 @@
     <string name="food_description">Description</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail_description">Paneer is a fresh, soft, white cheese that is a staple in South Asian cooking.</string>
 </resources>
