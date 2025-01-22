@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Food Ordering App</string>
-    <string name="name">Name</string>
+    <string name="food_name">FoodName</string>
     <string name="currency_symbol">$</string>
-    <string name="price">Price</string>
+    <string name="food_price">Price</string>
     <string name="food_description">Description</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
