@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.learnandroid.foodorderingapp.Adapters.MainAdapter;
+import com.learnandroid.foodorderingapp.Fragments.FoodDetailFragment;
 import com.learnandroid.foodorderingapp.Fragments.OrderFragment;
 import com.learnandroid.foodorderingapp.Models.MainModel;
 import com.learnandroid.foodorderingapp.databinding.ActivityMainBinding;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         binding.orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFramgent(new OrderFragment());
+                loadFramgent(new FoodDetailFragment());
             }
         });
 

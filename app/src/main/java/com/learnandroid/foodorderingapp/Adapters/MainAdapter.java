@@ -1,6 +1,7 @@
 package com.learnandroid.foodorderingapp.Adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.learnandroid.foodorderingapp.Fragments.FoodDetailFragment;
 import com.learnandroid.foodorderingapp.MainActivity;
 import com.learnandroid.foodorderingapp.Models.MainModel;
 import com.learnandroid.foodorderingapp.R;
@@ -47,6 +49,21 @@ public class MainAdapter  extends RecyclerView.Adapter<MainAdapter.viewHolder>{
         holder.food_name.setText(model.getName());
         holder.food_current_price.setText(model.getPrice());
         holder.food_description.setText(model.getDescription());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("image",model.getImage());
+                bundle.putString("name",model.getName());
+                bundle.putString("price",model.getPrice());
+                bundle.putString("desc",model.getDescription());
+
+                FoodDetailFragment fragment = new FoodDetailFragment();
+                fragment.setArguments(bundle);
+
+            }
+        });
     }
 
     @Override

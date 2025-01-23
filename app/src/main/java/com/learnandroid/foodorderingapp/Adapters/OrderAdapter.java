@@ -1,6 +1,7 @@
 package com.learnandroid.foodorderingapp.Adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,10 +38,23 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.ordered_food_Image.setImageResource(orderList.get(position).getOrdered_food_image());
-        holder.ordered_food_name.setText(orderList.get(position).getOrdered_food_name());
-        holder.ordered_food_price.setText(orderList.get(position).getOrdered_food_price());
-        holder.ordered_number.setText(orderList.get(position).getOrdered_number());
+        OrderModel model = orderList.get(position);
+        holder.ordered_food_Image.setImageResource(model.getOrdered_food_image());
+        holder.ordered_food_name.setText(model.getOrdered_food_name());
+        holder.ordered_food_price.setText(model.getOrdered_food_price());
+        holder.ordered_number.setText(model.getOrdered_number());
+
+       /* holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("image",model.getOrdered_food_image());
+                bundle.putString("name",model.getOrdered_food_name());
+                bundle.putString("price",model.getOrdered_food_price());
+                bundle.putString("number",model.getOrdered_number());
+
+            }
+        });*/
     }
 
     @Override
