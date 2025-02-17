@@ -9,10 +9,12 @@
     <item
         android:id="@+id/navOrders"
         android:title="Orders"
+        android:icon="@drawable/orders"
         />
     <item
         android:id="@+id/navProfile"
         android:title="Profile"
+        android:icon="@drawable/user"
         />
 
 </menu>

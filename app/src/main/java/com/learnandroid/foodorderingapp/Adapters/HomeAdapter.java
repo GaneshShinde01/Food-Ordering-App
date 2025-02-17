@@ -12,22 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.learnandroid.foodorderingapp.Fragments.FoodDetailFragment;
-import com.learnandroid.foodorderingapp.MainActivity;
-import com.learnandroid.foodorderingapp.Models.MainModel;
+import com.learnandroid.foodorderingapp.Models.HomeModel;
 import com.learnandroid.foodorderingapp.R;
 import com.learnandroid.foodorderingapp.databinding.SampleMainfoodBinding;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-public class MainAdapter  extends RecyclerView.Adapter<MainAdapter.viewHolder>{
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.viewHolder>{
 
     SampleMainfoodBinding binding;
-    ArrayList<MainModel> list;
+    ArrayList<HomeModel> list;
     Context context;
 
-    public MainAdapter(ArrayList<MainModel> list, Context context) {
+    public HomeAdapter(ArrayList<HomeModel> list, Context context) {
 
         this.list = list;
         this.context = context;
@@ -44,7 +41,7 @@ public class MainAdapter  extends RecyclerView.Adapter<MainAdapter.viewHolder>{
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
-        final MainModel model = list.get(position);
+        final HomeModel model = list.get(position);
         holder.food_image.setImageResource(model.getImage());
         holder.food_name.setText(model.getName());
         holder.food_current_price.setText(model.getPrice());

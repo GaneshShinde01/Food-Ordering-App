@@ -1,11 +1,11 @@
 package com.learnandroid.foodorderingapp.Models;
 
-public class MainModel {
+public class HomeModel {
 
     int image;
     String name, price, description;
 
-    public MainModel(int image, String name, String price, String description) {
+    public HomeModel(int image, String name, String price, String description) {
         this.image = image;
         this.name = name;
         this.price = price;
