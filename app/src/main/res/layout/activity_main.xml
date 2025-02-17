@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<!--
    <Button
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -15,18 +15,27 @@
        android:text="Orders"
        android:layout_gravity="end"
        />
+-->
 
    <FrameLayout
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
        android:id="@+id/frame"
+       android:layout_above="@+id/bottomNav"
        />
-
+<!--
    <androidx.recyclerview.widget.RecyclerView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:id="@+id/food_list_rv"
-       />
+       />-->
 
+   <com.google.android.material.bottomnavigation.BottomNavigationView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/bottomNav"
+       app:menu="@menu/menu"
+       android:layout_alignParentBottom="true"
+      />
 
-</LinearLayout>
+</RelativeLayout>
