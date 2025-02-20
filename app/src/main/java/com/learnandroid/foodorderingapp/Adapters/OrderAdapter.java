@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,7 +45,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         holder.ordered_food_price.setText(model.getOrdered_food_price());
         holder.ordered_number.setText(model.getOrdered_number());
 
-       /* holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -52,9 +53,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 bundle.putString("name",model.getOrdered_food_name());
                 bundle.putString("price",model.getOrdered_food_price());
                 bundle.putString("number",model.getOrdered_number());
-
+                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
     }
 
     @Override

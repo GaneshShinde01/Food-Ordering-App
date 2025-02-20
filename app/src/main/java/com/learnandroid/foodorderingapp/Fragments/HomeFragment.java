@@ -49,6 +49,9 @@ public class HomeFragment extends Fragment {
         HomeAdapter adapter = new HomeAdapter(list,getContext());
         binding.foodListRv.setAdapter(adapter);
 
+        FoodDetailFragment fragment = new FoodDetailFragment();
+        getChildFragmentManager().beginTransaction().replace(R.id.foodDetailsContainer,new FoodDetailFragment()).commit();
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.foodListRv.setLayoutManager(layoutManager);
         return binding.getRoot();

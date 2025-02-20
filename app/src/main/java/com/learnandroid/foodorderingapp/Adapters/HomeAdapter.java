@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.learnandroid.foodorderingapp.Fragments.FoodDetailFragment;
@@ -47,9 +50,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.viewHolder>{
         holder.food_current_price.setText(model.getPrice());
         holder.food_description.setText(model.getDescription());
 
+
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Bundle bundle = new Bundle();
                 bundle.putInt("image",model.getImage());
                 bundle.putString("name",model.getName());
@@ -81,4 +88,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.viewHolder>{
             food_description = itemView.findViewById(R.id.food_description);
         }
     }
+
+    /*private void loadFramgent (Fragment frament){
+
+        FragmentManager fm =
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frame, frament,frament.getClass().getSimpleName());
+        ft.commit();
+    }*/
 }
