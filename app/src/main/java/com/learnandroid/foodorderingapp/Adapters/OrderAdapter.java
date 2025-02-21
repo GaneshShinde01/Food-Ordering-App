@@ -1,7 +1,6 @@
 package com.learnandroid.foodorderingapp.Adapters;
 
-import android.content.Context;
-import android.os.Bundle;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.learnandroid.foodorderingapp.DBHelper;
 import com.learnandroid.foodorderingapp.Models.OrderModel;
 import com.learnandroid.foodorderingapp.R;
 
@@ -20,18 +21,25 @@ import java.util.ArrayList;
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
     ArrayList<OrderModel> orderList;
-    Context context;
+    private OnItemClickListener listener;
 
-    public OrderAdapter(ArrayList<OrderModel> orderList, Context context) {
+
+    public interface OnItemClickListener {
+        void onItemClick(OrderModel orderModel);
+    }
+
+
+    public OrderAdapter(ArrayList<OrderModel> orderList, OnItemClickListener listener) {
         this.orderList = orderList;
-        this.context = context;
+        this.listener = listener;
+
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.sample_order,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.sample_order,parent,false);
 
         return new ViewHolder(view);
     }
@@ -56,6 +64,45 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
             }
         });*/
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                listener.onItemClick(model);
+
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                new AlertDialog.Builder(v.getContext())
+                        .setTitle("Delete Item")
+                        .setMessage("Are you sure to delete this item?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                DBHelper helper = new DBHelper(v.getContext());
+                                if(helper.deleteOrder(model.getOrdered_number()) >0){
+                                    Toast.makeText(v.getContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Toast.makeText(v.getContext(), "Error", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .show();
+
+                return false;
+            }
+        });
     }
 
     @Override

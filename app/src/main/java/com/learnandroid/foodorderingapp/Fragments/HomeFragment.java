@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
                 bundle.putString("ordered_food_name", homeModel.getName());
                 bundle.putString("ordered_food_price", homeModel.getPrice());
                 bundle.putString("ordered_description", homeModel.getDescription());
-
+                bundle.putInt("type",1);
                 FoodDetailFragment fragmentB = new FoodDetailFragment();
                 fragmentB.setArguments(bundle);
 

@@ -12,6 +12,10 @@ public class OrderModel {
         this.ordered_number = ordered_number;
     }
 
+    public OrderModel() {
+
+    }
+
     public int getOrdered_food_image() {
         return ordered_food_image;
     }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.learnandroid.foodorderingapp.Adapters.OrderAdapter;
+import com.learnandroid.foodorderingapp.DBHelper;
 import com.learnandroid.foodorderingapp.Models.OrderModel;
 import com.learnandroid.foodorderingapp.R;
 import com.learnandroid.foodorderingapp.databinding.FragmentOrderBinding;
@@ -31,17 +32,36 @@ public class OrderFragment extends Fragment {
         // Inflate the layout for this fragment
         binding  = FragmentOrderBinding.inflate(inflater, container, false);
 
-        ArrayList<OrderModel> orderModelArrayList = new ArrayList<>();
+        //ArrayList<OrderModel> orderModelArrayList = new ArrayList<>();
 
+//
+//        orderModelArrayList.add(new OrderModel(R.drawable.palakpanner,"palakpanner","15","6846554"));
+//        orderModelArrayList.add(new OrderModel(R.drawable.paneer,"palakpanner","15","6846554"));
+//        orderModelArrayList.add(new OrderModel(R.drawable.kababpaneer,"palakpanner","15","6846554"));
+//        orderModelArrayList.add(new OrderModel(R.drawable.daltadka,"palakpanner","15","6846554"));
+//        orderModelArrayList.add(new OrderModel(R.drawable.baingan,"palakpanner","15","6846554"));
 
-        orderModelArrayList.add(new OrderModel(R.drawable.palakpanner,"palakpanner","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.paneer,"palakpanner","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.kababpaneer,"palakpanner","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.daltadka,"palakpanner","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.baingan,"palakpanner","15","6846554"));
+        DBHelper dbHelper = new DBHelper(getContext());
+        ArrayList<OrderModel> list  = dbHelper.getOrders();
+
 
         //System.out.println("list="+orderModelArrayList);
-        OrderAdapter orderAdapter = new OrderAdapter(orderModelArrayList,getContext());
+        OrderAdapter orderAdapter = new OrderAdapter(list, new OrderAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(OrderModel orderModel) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", Integer.parseInt(orderModel.getOrdered_number()));
+                bundle.putInt("type", 2);
+
+                FoodDetailFragment fragmentB = new FoodDetailFragment();
+                fragmentB.setArguments(bundle);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, fragmentB)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         binding.orderListRv.setAdapter(orderAdapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

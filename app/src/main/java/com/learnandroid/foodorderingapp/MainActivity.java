@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.learnandroid.foodorderingapp.Fragments.HomeFragment;
 import com.learnandroid.foodorderingapp.Fragments.OrderFragment;
+import com.learnandroid.foodorderingapp.Fragments.ProfileFragment;
 import com.learnandroid.foodorderingapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
                 } else if (itemId == R.id.navProfile) {
 
-                    selectedFragment = getSupportFragmentManager().findFragmentByTag(OrderFragment.class.getSimpleName());
+                    selectedFragment = getSupportFragmentManager().findFragmentByTag(ProfileFragment.class.getSimpleName());
                     if (selectedFragment == null) {
-                        selectedFragment = new OrderFragment();
+                        selectedFragment = new ProfileFragment();
                     }
                 }  else {
                     Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
