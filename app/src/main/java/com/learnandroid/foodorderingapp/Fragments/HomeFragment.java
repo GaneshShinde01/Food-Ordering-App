@@ -46,11 +46,29 @@ public class HomeFragment extends Fragment {
         list.add(new HomeModel(R.drawable.mashroom,"Mashroom ","15","Paneer Masala, one of our most ordered fish"));
         list.add(new HomeModel(R.drawable.palakpanner,"Palakpanner ","10","Paneer Masala, one of our most ordered fish"));
 
-        HomeAdapter adapter = new HomeAdapter(list,getContext());
+        HomeAdapter adapter = new HomeAdapter(list, new HomeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(HomeModel homeModel) {
+                // Passing data to FragmentB
+                Bundle bundle = new Bundle();
+                bundle.putInt("ordered_food_image", homeModel.getImage());
+                bundle.putString("ordered_food_name", homeModel.getName());
+                bundle.putString("ordered_food_price", homeModel.getPrice());
+                bundle.putString("ordered_description", homeModel.getDescription());
+
+                FoodDetailFragment fragmentB = new FoodDetailFragment();
+                fragmentB.setArguments(bundle);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, fragmentB)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         binding.foodListRv.setAdapter(adapter);
 
-        FoodDetailFragment fragment = new FoodDetailFragment();
-        getChildFragmentManager().beginTransaction().replace(R.id.foodDetailsContainer,new FoodDetailFragment()).commit();
+//        FoodDetailFragment fragment = new FoodDetailFragment();
+//        getChildFragmentManager().beginTransaction().replace(R.id.foodDetailsContainer,new FoodDetailFragment()).commit();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.foodListRv.setLayoutManager(layoutManager);

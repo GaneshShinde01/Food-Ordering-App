@@ -45,7 +45,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         holder.ordered_food_price.setText(model.getOrdered_food_price());
         holder.ordered_number.setText(model.getOrdered_number());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+       /* holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -55,7 +55,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 bundle.putString("number",model.getOrdered_number());
                 Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 
     @Override
