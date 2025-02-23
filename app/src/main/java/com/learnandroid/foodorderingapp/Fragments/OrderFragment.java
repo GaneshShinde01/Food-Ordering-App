@@ -29,7 +29,6 @@ public class OrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         binding  = FragmentOrderBinding.inflate(inflater, container, false);
 
         //ArrayList<OrderModel> orderModelArrayList = new ArrayList<>();
