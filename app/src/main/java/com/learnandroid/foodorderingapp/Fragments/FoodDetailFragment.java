@@ -20,7 +20,8 @@ public class FoodDetailFragment extends Fragment {
     int originalImage;
 
     public FoodDetailFragment() {
-        // Required empty public constructor
+
+
     }
 
     @Override
