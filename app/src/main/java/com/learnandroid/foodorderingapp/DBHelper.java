@@ -51,24 +51,14 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = getReadableDatabase();
         ContentValues values = new ContentValues();
 
-        /*
-        * id = 0
-        * name = 1
-        * phone = 2
-        * price = 3
-        * quantity = 4
-        * image = 5
-        * description = 6
-        * foodName = 7
-        *
-        * */
-        values.put("name",name);
-        values.put("phone",phone);
-        values.put("price",price);
-        values.put("quantity",quantity);
-        values.put("image",image);
-        values.put("description",description);
-        values.put("foodName",foodName);
+
+        values.put("name",name); // 1
+        values.put("phone",phone); // 2
+        values.put("price",price); //3
+        values.put("quantity",quantity); //4
+        values.put("image",image); //5
+        values.put("description",description); //6
+        values.put("foodName",foodName); //7
 
         long id = database.insert("orders",null,values);
 
