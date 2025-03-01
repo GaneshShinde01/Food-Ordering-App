@@ -65,11 +65,7 @@ public class HomeFragment extends Fragment {
             }
         });
         binding.foodListRv.setAdapter(adapter);
-/*
 
-        FoodDetailFragment fragment = new FoodDetailFragment();
-        getChildFragmentManager().beginTransaction().replace(R.id.foodDetailsContainer,new FoodDetailFragment()).commit();
-*/
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.foodListRv.setLayoutManager(layoutManager);
