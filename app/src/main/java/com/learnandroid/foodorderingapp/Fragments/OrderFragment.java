@@ -39,7 +39,7 @@ public class OrderFragment extends Fragment {
 //        orderModelArrayList.add(new OrderModel(R.drawable.kababpaneer,"palakpanner","15","6846554"));
 //        orderModelArrayList.add(new OrderModel(R.drawable.daltadka,"palakpanner","15","6846554"));
 //        orderModelArrayList.add(new OrderModel(R.drawable.baingan,"palakpanner","15","6846554"));
-        orderModelArrayList.add(new OrderModel(R.drawable.baingan,"palakpanner","15","6846554"));
+//        orderModelArrayList.add(new OrderModel(R.drawable.baingan,"palakpanner","15","6846554"));
         DBHelper dbHelper = new DBHelper(getContext());
         ArrayList<OrderModel> list  = dbHelper.getOrders();
 
