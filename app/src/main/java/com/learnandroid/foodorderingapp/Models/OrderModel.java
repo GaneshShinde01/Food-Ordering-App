@@ -49,5 +49,4 @@ public class OrderModel {
     }
 
 
-    //checking the OrderModel class
 }
